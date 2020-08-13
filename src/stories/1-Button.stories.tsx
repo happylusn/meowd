@@ -6,8 +6,7 @@ import Button, { ButtonType } from '../components/Button/button';
 export default {
   title: 'Button 按钮',
   component: Button,
-  decorators: [withKnobs],
-  // decorators: [(storyFn: any) => <div style={{ padding: '24px 30px' }}>{storyFn()}</div>, withKnobs]
+  decorators: [withKnobs]
 };
 
 export const DefaultButton = () => <Button onClick={action('clicked')}>Default</Button>;
