@@ -14,7 +14,7 @@ export interface SubMenuProps {
   subIndexs?: string[];
 }
 
-const SubMenu: React.FC<SubMenuProps> = (props) => {
+export const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { index, children, title, className, level, icon, subIndexs } = props;
   const context = useContext(MenuContext);
   const isOpend =  (index && context.mode === 'vertical') ? context.defaultOpenSubMenus!.includes(index) : false;

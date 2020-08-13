@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs],
   parameters: {
     info: {
-      propTables:[Menu]
+      propTables:[Menu, Menu.Item, Menu.Submenu]
     }
   }
 };

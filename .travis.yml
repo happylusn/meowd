@@ -1,0 +1,38 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+  - node_modules
+env:
+  - CI=true
+stages:
+  - name: build-page
+  - name: npm-publish
+jobs:
+  include:
+    - stage: build-page
+        script:
+          - npm run build-storybook
+        deploy:
+          provider: pages
+          skip_cleanup: true
+          github_token: $github_token
+          local_dir: storybook-static
+          on:
+            branch: master
+    - stage: npm-publish
+        script:
+          - npm run build
+        deploy:
+          provider: npm
+          skip_cleanup: true
+          email: 1278588306@qq.com
+          api_key: $npm_token
+          local_dir: storybook-static
+          on:
+            tags: true
+            branch: master
+          tag: latest
+          condition: '$TRAVIS_TAG =~ ^v[0-9]+.[0-9]+.[0-9]+$'
+  

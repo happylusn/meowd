@@ -11,7 +11,7 @@ export interface MenuItemProps {
   subIndexs?: string[];
 }
 
-const MenuItem: React.FC<MenuItemProps> = (props) => {
+export const MenuItem: React.FC<MenuItemProps> = (props) => {
   const { index, disabled, className, style, children, icon, subIndexs, ...restProps } = props;
   const context = useContext(MenuContext);
   const classes = classNames('meow-menu-item', className, {
