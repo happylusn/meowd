@@ -13,7 +13,6 @@ deploy:
   skip_cleanup: true
   email: 1278588306@qq.com
   api_key: $npm_token
-  local_dir: storybook-static
   on:
     tags: true
     branch: master
