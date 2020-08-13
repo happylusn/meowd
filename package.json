@@ -13,7 +13,7 @@
     "UI",
     "React"
   ],
-  "repository": { 
+  "repository": {
     "type": "git",
     "url": "https://github.com/happylusn/meowd"
   },
@@ -36,13 +36,21 @@
     "start": "react-scripts start",
     "build_old": "react-scripts build",
     "build": "npm run clean && npm run build-ts && npm run build-css",
+    "lint": "eslint --ext js,ts,tsx src --max-warnings 5",
     "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "clean": "rimraf ./dist",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test:nowatch && npm run lint"
+    }
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -93,22 +101,24 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^5.3.19",
-    "@types/classnames": "^2.2.10",
-    "@types/react-transition-group": "^4.4.0",
-    "@types/storybook__addon-info": "^5.2.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/classnames": "^2.2.10",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.50",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "rimraf": "^3.0.2",
-    "react-scripts": "3.4.1",
-    "typescript": "^3.7.5",
+    "@types/react-transition-group": "^4.4.0",
+    "@types/storybook__addon-info": "^5.2.1",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.7.5"
   }
 }
