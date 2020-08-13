@@ -1,0 +1,34 @@
+.meow-progress-bar {
+  width: 100%;
+  box-sizing: border-box;
+  .meow-progress-bar-outer {
+    border-radius: 100px;
+    background-color: #ebeef5;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+  }
+  .meow-progress-bar-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    text-align: right;
+    border-radius: 100px;
+    line-height: 1;
+    white-space: nowrap;
+    transition: width .6s ease;
+    .meow-progress-bar-inner-text {
+      display: inline-block;
+      vertical-align: middle;
+      color: #fff;
+      font-size: 12px;
+      margin: 0 5px;
+    }
+  }
+  @each $key, $val in $theme-colors {
+    .color-#{$key} {
+      background-color: $val;
+    }
+  }
+}

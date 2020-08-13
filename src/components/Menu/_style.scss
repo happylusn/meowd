@@ -1,0 +1,218 @@
+.meow-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding-left: 0;
+  font-size: $font-size-base;
+  &.meow-menu-horizontal {
+    border-bottom: $menu-border-width solid $menu-border-color;
+    justify-content: center;
+    align-items: center;
+  }
+  &.meow-menu-vertical {
+    flex-direction: column;
+    border-right: $menu-border-width solid $menu-border-color;
+  }
+  &.meow-menu-light {
+    color: $menu-light-color;
+    background-color: $menu-light-background-color;
+  }
+  &.meow-menu-dark {
+    color: $menu-dark-color;
+    background-color: $menu-dark-background-color;
+  }
+  .meow-menu-submenu-arrow {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 10px;
+    transform: translateY(-50%);
+    transition: transform .25s ease-in-out;
+  }
+  >.meow-menu-submenu {
+    >.meow-menu-submenu-title {
+      height: $menu-item-height;
+      line-height: $menu-item-height;
+    }
+  }
+}
+.meow-menu-item {
+  height: $menu-item-height;
+  line-height: $menu-item-height;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  padding: 0 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &.meow-menu-item-disabled {
+    opacity: .25;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+.meow-menu-sub {
+  .meow-menu-item {
+    width: 100%;
+    height: $menu-sub-item-height;
+    line-height: $menu-sub-item-height;
+  }
+}
+.meow-menu-submenu-title {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.meow-menu-horizontal {
+  &:not(.meow-menu-sub) >.meow-menu-item, &:not(.meow-menu-sub) >.meow-menu-submenu>.meow-menu-submenu-title {
+    margin: 0;
+    padding: 0 20px;
+    .meow-menu-submenu-arrow {
+      position: initial;
+      transform: initial;
+      margin-left: 10px;
+    }
+  }
+  .meow-menu-submenu-title {
+    padding-right: 16px;
+    .meow-menu-submenu-arrow {
+      right: 0;
+    }
+  }
+  &:not(.meow-menu-sub) >.meow-menu-submenu {
+    &.meow-menu-submenu-open {
+      >.meow-menu-submenu-title .meow-menu-submenu-arrow {
+        transform: rotate(180deg) !important;
+      }
+    }
+    position: relative;
+    .meow-menu-sub {
+      z-index: 999;
+      width: 120%;
+      flex-direction: column;
+      position: absolute;
+      top: calc(100% + 6px);
+      box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+    }
+  }
+}
+
+.meow-menu-vertical {
+  .meow-menu-submenu {
+    &.meow-menu-submenu-open {
+      >.meow-menu-submenu-title .meow-menu-submenu-arrow {
+        transform: translateY(-50%) rotate(180deg) !important;
+      }
+    }
+  }
+  .meow-menu-item {
+    width: 100%;
+  }
+  .meow-menu-item:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  .meow-menu-submenu-title {
+    width: 100%;
+    padding-right: 34px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+}
+
+.meow-menu-dark {
+  .meow-menu-item {
+    color: $menu-dark-color;
+    &:hover {
+      color: $menu-dark-hover-color;
+    }
+    &.meow-menu-item-active {
+      color: $menu-dark-hover-color;
+      background-color: $menu-dark-background-active-color;
+    }
+  }
+  .meow-menu-submenu-title {
+    &:hover {
+      color: $menu-dark-hover-color;
+    }
+  }
+  .meow-menu-submenu-open {
+    .meow-menu-submenu-title {
+      color: $menu-dark-hover-color;
+    }
+  }
+  &.meow-menu-horizontal {
+    >.meow-menu-submenu-selected {
+      >.meow-menu-submenu-title {
+        color: $menu-dark-hover-color;
+      }
+    }
+    >.meow-menu-item-active {
+      color: $menu-dark-hover-color;
+      background-color: transparent;
+    }
+  }
+  .meow-menu-vertical {
+    &.meow-menu-sub {
+      background-color: $menu-dark-sub-background-color;
+      border-right: 0;
+    }
+  }
+  .meow-menu-horizontal {
+    &.meow-menu-sub {
+      background-color: $menu-dark-sub-background-color;
+    }
+  }
+}
+.meow-menu-light {
+  .meow-menu-submenu-title {
+    &:hover {
+      color: $menu-light-hover-color;
+    }
+  }
+  .meow-menu-item {
+    color: $menu-light-color;
+    &:hover {
+      color: $menu-light-hover-color;
+    }
+    &.meow-menu-item-active {
+      color: $menu-light-hover-color;
+    }
+  }
+  &.meow-menu-horizontal {
+    >.meow-menu-item-active {
+      border-bottom: 2px solid $menu-light-hover-color;
+    }
+    >.meow-menu-submenu-selected {
+      >.meow-menu-submenu-title {
+        color: $menu-light-hover-color;
+        border-bottom: 2px solid $menu-light-hover-color;
+      }
+    }
+  }
+  .meow-menu-vertical {
+    &.meow-menu-sub {
+      border-right: 0;
+    }
+  }
+}
+.meowicon {
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+}
+.meow-menu-item .meowicon, .meow-menu-submenu-title .meowicon {
+  min-width: 14px;
+  max-width: 14px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.meow-menu-hidden {
+  display: none;
+}

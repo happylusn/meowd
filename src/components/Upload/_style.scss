@@ -1,0 +1,106 @@
+.meow-upload {
+  .meow-upload-select {
+    display: inline-block;
+  }
+  .meow-upload-dragger {
+    background-color: #fff;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 360px;
+    height: 180px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      border: 1px dashed $primary;
+    }
+    &.is-dragover {
+      border: 2px dashed $primary;
+      background: rgba($primary, .1);
+    }
+    .meow-icon-upload {
+      font-size: 50px;
+      color: #c0c4cc;
+      margin: 40px 0 16px;
+      line-height: 50px;
+    }
+    .meow-upload-text {
+      color: #606266;
+      font-size: 14px;
+      text-align: center;
+      em {
+        color: $primary;
+      }
+    }
+  }
+  .meow-upload-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    .meow-upload-list-item {
+      transition: all .5s cubic-bezier(.55,0,.1,1);
+      font-size: 14px;
+      color: #606266;
+      line-height: 1.8;
+      margin-top: 5px;
+      min-width: 200px;
+      position: relative;
+      box-sizing: border-box;
+      border-radius: 4px;
+      width: 100%;
+      cursor: pointer;
+      .meow-upload-list-item-name {
+        display: block;
+        margin-right: 40px;
+        overflow: hidden;
+        padding-left: 4px;
+        text-overflow: ellipsis;
+        transition: color .3s;
+        white-space: nowrap;
+        .meow-icon {
+          height: 100%;
+          margin-right: 7px;
+          color: #909399;
+          line-height: inherit;
+        }
+      }
+      .meow-upload-list-item-status, .meow-upload-list-item-close {
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 0;
+        line-height: inherit;
+      }
+      .meow-upload-list-item-close {
+        display: none;
+        .meow-icon {
+          width: 14px;
+        }
+      }
+      .meow-upload-list-item-progress {
+        display: flex;
+        align-items: center;
+        span {
+          line-height: 1;
+          margin: 0 5px;
+          font-size: 12px;
+        }
+      }
+      &:hover {
+        background-color: #f5f7fa;
+        .meow-upload-list-item-name {
+          color: $primary;
+        }
+        .meow-upload-list-item-status {
+          display: none;
+        }
+        .meow-upload-list-item-close {
+          display: block;
+        }
+      }
+    }
+  }
+}

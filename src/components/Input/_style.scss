@@ -1,0 +1,109 @@
+.meow-input {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  font-size: $font-size-base;
+  .meow-input-icon-wrapper {
+    position: absolute;
+    width: $input-height-base;
+    height: $input-height-base;
+    line-height: $input-height-base;
+    text-align: center;
+    right: 0;
+    z-index: 3;
+    color: $input-group-addon-color;
+  }
+  &.meow-input-icon {
+    .meow-input-inner {
+      padding-right: $input-height-base;
+    }
+  }
+}
+.meow-input-inner {
+  display: inline-block;
+  width: 100%;
+  background-color: $input-bg;
+  border: 1px solid $input-border-color;
+  border-radius: $border-radius-base;
+  color: $input-color;
+  box-shadow: $input-box-shadow;
+  font-size: inherit;
+  height: $input-height-base;
+  outline: none;
+  padding: $input-padding-y-base $input-padding-x;
+  &:not(:disabled):focus {
+    border-color: $input-focus-border-color;
+  }
+  &:not(:disabled):hover {
+    border-color: $input-hover-border-color;
+  }
+  &:disabled {
+    background-color: $input-disabled-bg;
+  }
+  &::placeholder {
+    color: $input-placeholder-color;
+  }
+}
+.meow-input-group {
+  display: inline-table;
+  width: 100%;
+}
+.meow-input-group-prepend, .meow-input-group-append {
+  display: table-cell;
+  color: $input-group-addon-color;
+  background-color: $input-group-addon-bg;
+  border: 1px solid $input-border-color;
+  border-radius: $border-radius-base;
+  vertical-align: middle;
+  width: 1px;
+  padding: 0 $input-padding-x;
+}
+.meow-input-group-prepend, .meow-input-group-with-append .meow-input-inner {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.meow-input-group-append, .meow-input-group-with-prepend .meow-input-inner {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.meow-input-group-prepend {
+  border-right: 0;
+}
+.meow-input-group-append {
+  border-left: 0;
+}
+
+.meow-input-size-lg {
+  font-size: $font-size-lg;
+  .meow-input-inner {
+    height: $input-height-lg;
+    padding: $input-padding-y-lg $input-padding-x;
+  }
+  .meow-input-icon-wrapper {
+    width: $input-height-lg;
+    height: $input-height-lg;
+    line-height: $input-height-lg;
+  }
+  &.meow-input-icon {
+    .meow-input-inner {
+      padding-right: $input-height-lg;
+    }
+  }
+}
+.meow-input-size-sm {
+  font-size: $font-size-sm;
+  .meow-input-inner {
+    height: $input-height-sm;
+    padding: $input-padding-y-sm $input-padding-x;
+  }
+  .meow-input-icon-wrapper {
+    width: $input-height-sm;
+    height: $input-height-sm;
+    line-height: $input-height-sm;
+  }
+  &.meow-input-icon {
+    .meow-input-inner {
+      padding-right: $input-height-sm;
+    }
+  }
+}
