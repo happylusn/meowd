@@ -6,15 +6,15 @@ cache:
   - node_modules
 env:
   - CI=true
-# script:
-#   - npm run build-storybook
-# deploy:
-#   provider: pages
-#   skip_cleanup: true
-#   github_token: $github_token
-#   local_dir: storybook-static
-#   on:
-#     branch: master
+script:
+  - npm run build-storybook
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: storybook-static
+  on:
+    branch: master
 # stages:
 #   - name: build-page
 #   - name: npm-publish
