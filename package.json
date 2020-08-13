@@ -1,5 +1,5 @@
 {
-  "name": "meow-ui",
+  "name": "meowd",
   "version": "0.1.0",
   "description": "React components library",
   "author": "happylusn",
@@ -13,9 +13,9 @@
     "UI",
     "React"
   ],
-  "repository": {
+  "repository": { 
     "type": "git",
-    "url": "https://github.com/happylusn"
+    "url": "https://github.com/happylusn/meowd"
   },
   "files": [
     "dist"
@@ -24,21 +24,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.50",
-    "@types/react": "^16.9.43",
-    "@types/react-dom": "^16.9.8",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "react-transition-group": "^4.4.1",
-    "typescript": "^3.7.5"
+    "react-transition-group": "^4.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -104,7 +96,19 @@
     "@types/classnames": "^2.2.10",
     "@types/react-transition-group": "^4.4.0",
     "@types/storybook__addon-info": "^5.2.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.50",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "react-docgen-typescript-loader": "^3.7.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "react-scripts": "3.4.1",
+    "typescript": "^3.7.5",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
