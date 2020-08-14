@@ -8,13 +8,9 @@ env:
   - CI=true
 script:
   - node --version
-stages:
-  - name: npm release
-    if: branch = master
-  - name: GitHub Release
-    if: branch = master
 jobs:
   include:
+    - if: branch = master
     - stage: npm release
       script: echo "Deploying to npm ..."
       deploy:
